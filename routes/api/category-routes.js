@@ -32,8 +32,7 @@ router.get('/:id', async (req, res) => {
 router.post('/', async (req, res) => {
     // create a new category
     try {
-        const new_category = req.body;
-        await Category.create(new_category);
+        const new_category = await Category.create(req.body);
         return res.status(200).json(new_category);
     } catch (err) {
         res.status(500).json(err);
