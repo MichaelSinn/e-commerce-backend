@@ -21,6 +21,7 @@ Product.belongsToMany(Tag, {
         model: "product_tag",
         key: "tag_id"
     },
+    onUpdate: "CASCADE"
 })
 
 // Tags belongToMany Products (through ProductTag)
@@ -28,7 +29,8 @@ Tag.belongsToMany(Product, {
     through: {
         model: "product_tag",
         key: "product_id"
-    }
+    },
+    onUpdate: "CASCADE"
 })
 
 module.exports = {
